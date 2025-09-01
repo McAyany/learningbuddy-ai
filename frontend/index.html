@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LearningBuddy</title>
+    <style>
+      body { font-family: system-ui, Arial; margin: 2rem; }
+      .card { max-width: 560px; margin: auto; padding: 1rem; border: 1px solid #eee; border-radius: 12px; }
+      button { padding: 0.6rem 1rem; border-radius: 8px; border: 0; background: #2563eb; color: #fff; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>LearningBuddy</h1>
+      <p>Setup complete! Backend health check:</p>
+      <button id="ping">Ping backend</button>
+      <pre id="out"></pre>
+    </div>
+    <script>
+      document.getElementById('ping').onclick = async () => {
+        const res = await fetch('http://127.0.0.1:8000/');
+        document.getElementById('out').textContent = await res.text();
+      };
+    </script>
+  </body>
+</html>
